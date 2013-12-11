@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export>
+  <files>
+  <!--
+      Configuration options related to files.
+      Tag		Text value
+      =====		============
+      working_directory	Directory to store "temporary" files.
+      delete_files	Empty. If present, temporary files will be deleted
+			when finished.
+  -->
+    <working_directory>/tmp</working_directory>
+    <delete_files/>
+  </files>
+  <database>
+    <!-- The usual PostgreSQL database settings. -->
+    <host></host>
+    <database></database>
+    <user></user>
+    <password></password>
+  </database>
+  <!--
+  	Who gets an email in the event of a database error.  Can be
+  	removed if no one should be notified of problems.
+  -->
+  <emailTo></emailTo>
+</export>

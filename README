@@ -1,0 +1,84 @@
+README for Boopsie.pm
+=====================
+Jason Stephenson <jstephenson@mvlc.org>
+v1.0, December 2013:
+Written for first public release
+
+Boopsie.pm is a Perl program for exporting bib records and uploading
+them to a FTP server where the Boopsie service can pick them up.  It
+is rather simple to install and to use once you have it configured
+properly.
+
+Installation
+-----------
+
+To install it, simply clone the git repository to a GNU/Linux computer
+that has access to your database server and can FTP to the Boopsie
+server.  You can configure your database and temporary file settings
+by following the comments in the export.xml file.  You configure the
+FTP settings by following the comments in the ftp.xml file.
+
+Email Configuration
+~~~~~~~~~~~~~~~~~~~
+
+Email settings are configured using the JSONPrefs module (see below).
+You will need to create a file that contains a JSON object structure
+(see http://www.json.org/) with the following value pairs:
+
+{
+    "host" : "host.domain.tld",
+    "port" : N,
+    "user" : "username",
+    "password" : "password",
+    "encryption" : "tls",
+    "from" : { "name" : "Sample Sender", "email" : "sender@domain.tld" }
+}
+
+Naturally, you need to replace the generic values with those
+appropriate for your server.
+
+The `N` after port needs to be the numeric port that you use to
+connect to your email server (very often 25 or 587).
+
+The `username` and `password` field need your user name and password
+that you use for sending email through the server.  If you don't need
+to login to send email, then you can delete these settings.
+
+The `encryption` field is likewise optional.  You may remove it to
+use unencrypted SMTP or you may set the value to `ssl` instead of tls
+if that is what your server requires.  (NOTE: That whether or not you
+use encryption also depends on your server, and the type of encryption
+may influence the value that you enter for the `port` option.)
+
+The `from` `name` and `email` options appear in the From: header of
+the email that is sent.
+
+Additional Perl Modules
+-----------------------
+
+Boopsie.pm requires the following additional Perl modules be
+installed:
+
+Archive::Zip
+DBI
+Encode
+File::Basename
+JSONPrefs
+MARC::File
+MARC::File::XML
+MARC::Record
+MIME::Lite
+Module::Load
+Net::FTP
+XML::XPath
+
+One of the following Perl modules is also required for sending of
+email, depending on your configuration:
+
+Net::SMTP
+Net::SMTP::SSL
+Net::SMTP::TLS
+
+Most of the above are available from CPAN or as packages in most
+GNU/Linux distributions.  JSONPrefs is available via git:
+http://git.mvlcstaff.org/?p=jason/JSONPrefs.git;a=summary

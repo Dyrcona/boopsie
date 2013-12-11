@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ftp>
+  <!-- Configure sites below inside a site element with an id attribute. -->
+  <!-- The code currently looks for the following child tags:
+       Tag		Text Value
+       ======		============
+       host		ftp server's domain name
+       user		ftp username
+       passive		if present use PASV mode ftp
+       password		ftp user's password
+       cwd		ftp directory (if we need to cwd after login)
+       emailTo		add 1 for each email recipient
+
+       You can add an 'onError' attribute with value of 1 to the
+       emailTo tag if you want that user to receive error emails as
+       well as success emails.
+
+       You may remove any tags that you don't need.
+
+       You may configure as many sites as you need.
+    -->
+  <site id="site_1">
+    <host></host>
+    <user></user>
+    <cwd></cwd>
+    <passive/>
+    <password></password>
+    <emailTo></emailTo>
+  </site>
+</ftp>
