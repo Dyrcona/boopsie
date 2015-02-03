@@ -61,13 +61,13 @@ sub send {
                               To => $emailTo,
                               Subject => $subject,
                               Data => $message);
-    # I want to figure out a way to pass the Port, User, and Password
-    # options in as some kind of hash or hashref, but the two obvious
-    # methods that I've tried have not worked.
-    my $smtp = $module->new($prefs->host,
-                            Port => $prefs->port,
-                            User => $prefs->user,
-                            Password => $prefs->password);
+    # Build our email argument array.
+    my @args = ($prefs->host, Port => $prefs->port);
+    if ($prefs->user && $prefs->password) {
+        push(@args, User => $prefs->user);
+        push(@args, Password => $prefs->password);
+    }
+    my $smtp = $module->new(@args);
     $smtp->mail($prefs->from->email);
     foreach my $recipient (@{$recips}) {
         $smtp->to($recipient);
