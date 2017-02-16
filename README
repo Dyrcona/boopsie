@@ -1,8 +1,7 @@
 README for Boopsie.pm
 =====================
-Jason Stephenson <jstephenson@mvlc.org>
-v1.0, December 2013:
-Written for first public release
+Jason Stephenson <jason@sigio.com>
+v1.1, February 2017: Updated for GitHub
 
 Boopsie.pm is a Perl program for exporting bib records and uploading
 them to a FTP server where the Boopsie service can pick them up.  It
@@ -81,4 +80,4 @@ Net::SMTP::TLS
 
 Most of the above are available from CPAN or as packages in most
 GNU/Linux distributions.  JSONPrefs is available via git:
-http://git.mvlcstaff.org/?p=jason/JSONPrefs.git;a=summary
+https://github.com/Dyrcona/JSONPrefs
